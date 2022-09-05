@@ -1,0 +1,384 @@
+/* Globally set text font to a sans-serif font */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 250;
+  letter-spacing: 1px;
+}
+/* Centers all app content in middle of page */
+html, body {
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Generic container class to conveniently center all contents */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styles for the video canvas to slightly improve aesthetics */
+.video-canvas {
+  background: rgba(0, 0, 0, 1);
+  margin: 1px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+/* Helper class to conveniently toggle hide/unhide */
+.hidden {
+  display: none;
+}
+
+
+/* Preview page styles */
+
+.preview__root {
+  flex-direction: column;
+  height: fit-content;
+}
+
+.preview-video {
+  width: 800px;
+  height: 450px;
+  background: rgba(0, 0, 0, 1);
+  /*margin: 1px;*/
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+.join-button {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 141, 250, 1);
+  border-radius: 14px;
+  font-size: 16px;
+  height: 3em;
+  width: 24em;
+  /*margin: 2em auto;*/
+  cursor: pointer;
+  border: none;
+  font-stretch: expanded;
+  transition: filter 0.15s ease-out;
+  position:absolute;
+  bottom: 5px;
+}
+
+q{
+  font-size: 16px;
+}
+
+.mySlides > i {
+  color:black;  
+}
+
+/* .join-button:hover {
+  filter: brightness(110%);
+} */
+
+/* The "active" pseudo-class MUST come after "hover" */
+.join-button:active {
+  filter: brightness(80%);
+}
+
+
+/* Loading styles */
+
+.loading-view {
+  flex-direction: column;
+  animation: blink 5s linear infinite;
+}
+
+.loading-spinner {
+  font-size: 32px;
+  color: rgba(0, 141, 250, 1);
+  animation: spin 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform:rotate(0deg);
+  }
+  100% {
+    transform:rotate(360deg);
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+
+/* Video app styles */
+
+/* Container for the video-app that helps place the meeting controls at the bottom */
+.video-app {
+  flex-direction: column;
+  height: fit-content;
+  justify-content: flex-end;
+}
+
+
+/* Additional styling for the meeting control buttons' container */
+.meeting-control-layer {
+  /* `position: absolute;` places the controls above the canvas */
+    position: relative;
+    border-radius: 14px;
+    background-color: #b0beae9c;
+    margin-block-end: 5px;
+    top: -72px;
+    width: 100%;
+
+}
+
+/* Styles for the buttons */
+.meeting-control-button {
+  border-radius: 15%;
+  border: none;
+  font-size: 24px;
+  color: rgba(0, 0, 0, 1);
+  background-color: black;
+  height: 2em;
+  width: 2em;
+  margin: 0.5em;
+  cursor: pointer;
+  
+  /*transition: all 0.15s ease-out;*/
+}
+
+.fas:hover {
+  color:rgb(41, 148, 193);
+}
+
+#js-leave-session-icon:hover{
+  color:white;
+}
+
+.meeting-control-button__off {
+ 
+  background-color: red;
+}
+
+.meeting-control-button__leave-session {
+
+  background-color: red;
+}
+/* 
+.meeting-control-button:hover {
+  filter: brightness(90%);
+}
+
+/* The "active" pseudo-class MUST come after "hover" */
+/* .meeting-control-button:active {
+  filter: brightness(80%); 
+} */
+
+.vertical-divider {
+  border: 1px solid rgba(0, 0, 0, 1);
+  margin: 10px 5px;
+  align-self: stretch;
+}
+
+/* 
+ * Classes to help show mic volume feedback for different intensities
+ * Add more styles to create smoother transitions */
+.mic-feedback__very-low {
+  background: linear-gradient(0deg, #00FFFF 20%, #FFFFFF 20%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.mic-feedback__low {
+  background: linear-gradient(0deg, #00FFFF 35%, #FFFFFF 35%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.mic-feedback__medium {
+  background: linear-gradient(0deg, #00FFFF 50%, #FFFFFF 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.mic-feedback__high {
+  background: linear-gradient(0deg, #00FFFF 65%, #FFFFFF 65%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.mic-feedback__very-high {
+  background: linear-gradient(0deg, #00FFFF 80%, #FFFFFF 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.mic-feedback__max {
+  background: #00FFFF;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.icon{
+  color: white;
+}
+.text-icon-micro{
+  color: white;
+  position: absolute;
+  top: 16px;
+}
+.text-icon-webcam{
+  color: white;
+  position: absolute;
+  top: 16px;
+}
+.text-icon-call{
+  color: white;
+  position: absolute;
+  top: 16px;
+}
+
+#video-canvas{
+  width: 100vw;
+  height: 100vh;
+} 
+
+.text-center{
+  display:flex;
+  justify-content: center;
+
+}
+
+#js-preview-mic-icon{
+  color: white;
+}
+
+#js-preview-webcam-icon{
+  color: white;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  position: absolute;
+  background: #f1f1f1f1;
+  width: auto;
+  height: 192px;
+  top: 0px;
+  left: 0px;
+  display: none;
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: #888;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  position: absolute;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  text-align: center;
+  padding: 20px;
+  background: #ddd;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: cornflowerblue;}
+
+.words{
+  position: absolute;
+  background: #f1f1f1f1;
+  width: 100%;
+  height: 150px;
+  bottom: 100px;
+  left: 0px;
+  display: none;
+  overflow: scroll;
+}
+
+.fa-closed-captioning,.fa-download{
+  color:white;
+}
+
+
+
+.prueba{
+  margin: 10px;
+    vertical-align: middle;
+}
+
+/* Extra small devices (phones, 600px and down) */
+/*@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/*@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/*@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 1200px) {}
+#video-canvas{
+  width: 100%;
+  height: 100%;
+} */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1500px) {
+  #video-canvas{
+    width: 2000px;
+  }
+} */

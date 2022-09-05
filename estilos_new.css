@@ -1,0 +1,402 @@
+
+.titulo-activity{
+    font-family: Tahoma, Geneva, sans-serif;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: uppercase;
+    margin-left:5px;
+}
+.form-check{
+    margin-left: 5px;
+}
+
+.dropdown{
+    display: inline;
+    
+}
+.dropdown-menu{
+    width: 250px;
+}
+#main{
+    border: 1px black solid;
+
+}
+
+.dropdowns{
+    background-color: #0037FF;
+    color: white; 
+
+}
+
+
+.buttons{
+    background-color: #0037FF;
+    color: white;  
+    border-radius:10px;
+    font-size: 1.5em;
+}
+
+#removeTabla{
+    background-color: #800000;
+    color: white;  
+    border-radius:10px;
+}
+
+
+#titulo{
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: xx-large;
+    color: #0C8FF7;
+}
+
+#operar{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2em;
+}
+
+.h2{
+    margin-left:1em ;
+}
+
+#calendario{
+    display: block;
+    width: 65%;
+}
+
+#contactos{
+    display: flex;
+    width: 35%;
+}
+
+.nuevoContacto{
+    display:none;
+}
+
+#check{
+    margin-left: 10px;
+}
+
+.fa-minus:hover{
+    cursor: pointer;
+}
+.fa-plus{
+    cursor: pointer;
+}
+
+
+.active{
+    background-color: #0037FF !important;
+}
+
+.btn-secondary{
+    background-color: #0037FF !important;
+    margin-left: 10px;
+}
+
+.btn-secondary-dark{
+    background-color: #1adbff !important;
+    margin-left: 10px;
+}
+
+.btn-space{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
+.btn.focus:hover,.btn:focus,.btn-secondary:hover .btn:hover{
+   color:white !important;
+}
+
+
+.titulo{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 35px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: uppercase;
+}
+
+.subtitulo{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 26px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+}
+
+body{
+   background-color: #6572ae;
+}
+.pb-modalreglog-container
+{
+    margin-top: 100px;
+}
+
+.pb-modalreglog-legend
+{
+    text-align: center;
+}
+
+.pb-modalreglog-input-group
+{
+    margin: auto;
+}
+
+.pb-modalreglog-submit
+{
+    margin-left: 5px;
+}
+
+.pb-modalreglog-form-reg
+{
+    text-align: center;
+}
+
+.pb-modalreglog-footer p
+{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#pb-modalreglog-progressbar
+{
+    border-radius: 2px;
+}
+
+.parent{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:center;
+    min-width: 300px;
+    min-height:750px;
+   
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #999;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 6px;
+    outline: 0;
+    -webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+    box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+    background-color: #ffffff;
+}
+
+.div-register{
+    display:flex;
+    flex-direction:column;
+    width: 300px;
+    height: 750px;
+    align-items:center;
+    justify-content:space-evenly;
+   
+}
+
+.register-button,.login-button{
+    background-color:#1adbff;
+    border:#1adbff;
+    border-radius:10px;
+    display:inline-block;
+    cursor:pointer;
+    color:#000000;
+    font-family:Arial;
+    font-size:19px;
+    padding:12px 37px;
+    text-decoration:none;
+}
+
+.register-button-form,.login-button,.login-button-form{
+    background-color:#1adbff;
+    color:#000000;
+}
+
+.register-button-form-close,.login-button-form-close{
+    background-color:#ffffff;
+    color:#000000;
+    border: 1px#000000 solid;
+}
+
+.button-footer{
+    border:#1adbff;
+    border-radius:10px;
+    color:#000000;
+    font-family:Arial;
+    font-size: medium;
+}
+
+.register-button:active {
+    position:relative;
+    top:1px;
+}
+
+
+
+.login-button:active {
+    position:relative;
+    top:1px;
+}
+.connect-logo{
+    display:flex;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.span-invisible{
+    color: green;
+    display: none;
+}
+
+.span-error-nombre, .span-error-email , .span-error-password-first{
+    display: none;
+    color:red;
+    font-size: 10px;
+}
+.botonera{
+    display:flex;
+    flex-direction:column;
+    height: 140px;
+    justify-content: space-around;
+}
+
+/*FOOTER*/
+footer{
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+background: #ffffff;
+height: auto;
+width: 100vw;
+padding-top: 40px;
+color: #000000;
+}
+.footer-content{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+text-align: center;
+max-height: 125px;
+}
+.footer-content h3{
+font-size: 2.1rem;
+font-weight: 500;
+text-transform: capitalize;
+line-height: 3rem;
+}
+.footer-content p{
+max-width: 500px;
+margin: 10px auto;
+line-height: 28px;
+font-size: 16px;
+color: #000000;
+}
+.socials{
+list-style: none;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 1rem 0 3rem 0;
+}
+.socials li{
+margin: 0 10px;
+}
+.socials a{
+text-decoration: none;
+color: #000000;
+border: 1.1px solid white;
+padding: 5px;
+border-radius: 50%;
+
+}
+.socials a i{
+font-size: 1.5rem;
+width: 20px;
+transition: color .4s ease;
+
+}
+.socials a:hover i{
+color: aqua;
+}
+
+.footer-bottom{
+background: #ffffff;
+width: 100vw;
+padding: 20px;
+padding-bottom: 40px;
+text-align: center;
+}
+.footer-bottom p{
+float: left;
+font-size: 16px;
+word-spacing: 2px;
+text-transform: capitalize;
+}
+.footer-bottom p a{
+color:#000000;
+font-size: 16px;
+text-decoration: none;
+}
+.footer-bottom span{
+text-transform: uppercase;
+opacity: .4;
+font-weight: 200;
+}
+.footer-menu{
+float: right;
+
+}
+.footer-menu ul{
+display: flex;
+}
+.footer-menu ul li{
+padding-right: 10px;
+display: block;
+}
+.footer-menu ul li a{
+color: #000000;
+text-decoration: none;
+}
+.footer-menu ul li a:hover{
+color: #27bcda;
+}
+.f-menu li{
+font-size: 18px;
+}
+  
+
+
+.father-nav{
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.child1{
+    display: flex;
+}
+
+.child2{
+    display: flex;
+}      
+
+#pruebaEvento{
+    float:right;
+}

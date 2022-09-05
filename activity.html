@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="estilos_new.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&disply=swap" rel="stylesheet">
+      <!-- Latest compiled and minified CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Latest compiled JavaScript -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" href="https://get.mavo.io/mavo.css"/>
+      <script src="https://get.mavo.io/mavo.js"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
+      <!-- Font-awesome --> 
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+   </head>
+   <body>
+       <!-- Modal-->
+      <div class="container">
+         <div class="modal fade" id="mi_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+             <div class="modal-content">
+               <div class="modal-header">
+                 <h4 class="modal-title" id="myModalLabel">TITULO</h4>
+               </div>
+               <div class="modal-body">
+                 <div class="row" style="padding:15px">
+                   <p>Estas seguro de que quiere eliminar la cuenta</p>              
+                 </div>
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn"  onclick="redirige()" data-dismiss="modal">Si</button>
+                 <button type="button" class="btn btn-secondary btn-falso" data-dismiss="modal">no</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+         <!--FIN  Modal-->
+      <audio preload ="auto" id="audioOscuro" src="prueba.mp3" type="audio/mp3">
+      </audio>
+      <nav class="navbar navbar-expand-sm navbar-light" id="menu" style="background-color: #e3f2fd;">
+         <div class="container-fluid">
+            <img src="img\icon.png">
+            <h3 class="titulo-activity" style="font-family: Verdana,sans-serif">CONNECT</h3>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+               <ul class="navbar-nav">
+                  <div class="father-nav">
+                     <div class="child1">
+                        <div class="dropdown">
+                           <button class="btn btn-secondary dropdown-toggle btn-lg text-uppercase btn-falso" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Color </button>
+                           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                             <div class="card">
+                               <div class="card-body">
+                                     <h5 class="card-title" id="text_card">Cambia el Color de la interfaz</h5>
+                                     <p class="card-text"></p>
+                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                       
+                                     </div>
+                                     <div class="form-check-first">
+                                       <button type="button" class="btn btn-secondary btn-space"  name="flexRadioColor" id="modoClaro" onmouseenter="eventEnterClaro()" onclick="eventClickClaro()"  value='o'>Modo Claro</button>
+                                     </div>
+                                     <div class="form-check-second">
+                                       <button type="button" class="btn btn-secondary btn-space"  name="flexRadioColor" id="modoOscuro" onmouseenter="eventEnterOscuro()" onclick="eventClickOscuro()"  value='o'>Modo Oscuro</button>
+                                     </div>
+                               </div>
+                             </div>
+                           </div>
+                         </div>         
+                         <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle btn-lg text-uppercase btn-falso" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Fuente </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                              <div class="card">
+                                <div class="card-body">
+                                      <h5 class="card-title-second">Cambia el tamaño de las letras</h5>
+                                      <p class="card-text-second"></p>
+                                      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                      </div>
+      
+                                    <div class="form-check-first">
+                                       
+                                      <button type="button" class="btn btn-secondary btn-space"  name="flexRadioFuente" id="normal" onmouseenter="eventEnterNormal()" onclick="eventClickNormal()"  value='n'>Fuente Normal</button>
+                                    </div>
+                                    <div class="form-check-second">
+                                      <button type="button" class="btn btn-secondary btn-space"  name="flexRadioFuente" id="grande" onmouseenter="eventEnterGrande()" onclick="eventClickGrande()"  value='g'>Fuente Grande</button>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle btn-lg text-uppercase" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Cursor </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                              <div class="card">
+                                <div class="card-body">
+                                      <h5 class="card-title-third">Cambia el aspecto del cursor</h5>
+                                      <p class="card-text-third"></p>
+                                      
+                                      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                       </div>
+                                    <div class="form-check-first">
+                                       <button type="button" class="btn btn-secondary btn-space"  name="flexRadioFuente" id="normal" onmouseenter="eventEnterMouseNormal()" onclick="eventClickMouseNormal()"  value='n'>Mouse Normal</button>
+                                    </div>
+                                    <div class="form-check-second">
+                                       <button type="button" class="btn btn-secondary btn-space"  name="flexRadioFuente" id="grande" onmouseenter="eventEnterMouseGrande()" onclick="eventClickMouseGrande()"  value='g'>Mouse Grande</button>
+                                    </div>
+                                    <div class="form-check-third">
+                                       <button type="button" class="btn btn-secondary btn-space"  name="flexRadioColor" id="modoOscuro" onmouseenter="eventEnterMouseNegro()" onclick="eventClickMouseNegro()"  value='o'>Mouse Oscuro</button>
+                                     </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+      
+                     </div>
+                       <div class="child2">
+                        <div class="dropdown">
+                           <button class="btn btn-secondary dropdown-toggle btn-lg text-uppercase btn-falso" type="button" id="dropdownMenu2" data-toggle="dropdown"     aria-haspopup="true" aria-expanded="false"> Ajustes 
+                           </button>
+                           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                             <div class="card">
+                               <div class="card-body">
+                                     <h5 class="card-title-fourth">Elimina la cuenta</h5>
+                                     <p class="card-text-fourth"></p>
+                                     
+                                     <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                      </div>
+                                   <div class="form-check-first">
+                                      <button type="button" class="btn btn-secondary"  name="flexRadioFuente" id="normal" onmouseenter="eventEnterRemove()" onclick="eventClickRemove()" value='r'>Eliminar Cuenta</button>
+                                   </div>
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                         <button data-toggle="modal" href="#mi_modal" href="#" class="btn btn-secondary btn-lg text-uppercase btn-falso" onclick="despliegaModal()">
+                           Cerrar Sesion
+                           </button>
+                       </div>
+                  </div>
+                  
+                   </p> 
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <div class="container-fluid" id="main">
+         <!-- Content here -->
+         <div class ="container-fluid" id="actividad">
+            <h1>Actividad</h1>
+            <div id="text-actividad">
+
+            </div>
+         </div>
+         <br><br><br>
+         <h2>Eventos</h2>
+         <div class ="container-fluid" id="operar">
+
+            <div id="contactos">
+               <div>
+                  <h3>Contactos</h3>
+                  <button id="desplegar" type="button"  class="buttons btn-secondary">AÑADIR CONTACTO</button>
+                  <br>
+                  <div>
+                     <div class="nuevoContacto">
+                        <label for="name">Nombre</label>
+                        <input type="text" name="name" id="name"/>
+                        <label for="correo">Correo</label>
+                        <input type="email" name= "correo" id="correo"/>
+                        <button id="go" type="button"  class="buttons btn-secondary">Añadir</button>
+                     </div>
+                     <br>
+                     <div class="table-responsive table-bordered">
+                        <table id="myTable" class="table">
+                           <thead class="thead-light">
+                              <tr>
+                                 <th>Nombre</th>
+                                 <th>Email</th>
+                                 <th>Marcar</th>
+                                 <th>Eliminar</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <button type="button" id="removeTabla" class="btn btn-danger">Eliminar Contactos</button>
+                  </div>
+               </div>
+            </div>
+            <br><br><br>
+            <div id="calendario" >
+               <h3>Calendario</h3> 
+               <div class="container" >
+                  <div class="calendar" >
+                     <div class="form-group">
+                        <div class='input-group date' id='example1'>
+                           <input type='hidden' class="form-control" id="dateAndTime">  
+                           <span class="input-group-addon">
+                           <span class="glyphicon glyphicon-calendar"></span>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <button type="button"  id="pruebaEvento" onclick="clickEvento()" class="buttons btn-secondary">CREAR EVENTO</button>
+         <footer>
+    <div class="footer-content">
+        <h3>Alvaro Vazquez</h3>
+        <p class="footer-text">Creemos en el poder del desarrollo de buenos productos con grandes 
+            propósitos con los que crear una gran comunidad unida por la accesibilidad </p>
+        <ul class="socials">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p>copyright &copy;2021 <a href="#">Alvaro Vazquez</a>  </p>
+                <div class="footer-menu">
+                  <ul class="f-menu">
+                    <!-- <li><a href="index.html">Home</a></li>
+                    <li><a href="qa.html">Q&A</a></li>
+                    <li><a href="contact.html">Contact</a></li> -->
+                    <li><button onclick="location.href='qa.html'"  class="btn-secondary button-footer pb-modalreglog-submit btn-falso">Q&A</button></li>
+                    <li><button  onclick="location.href='contact.html'"  class="btn-secondary button-footer pb-modalreglog-submit btn-falso">Contacto</button></li>
+                  </ul>
+                </div>
+    </div>
+</footer>
+      </div>
+
+      
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="gScript.js"></script>
+      <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+      <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/es.js"></script>
+      <script src="scripts.js"></script>
+   </body>
+</html>

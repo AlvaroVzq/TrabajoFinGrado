@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login And SignUp Modal Template | PrepBootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+<!-- Login And SignUp Modal - START -->
+<div class="container pb-modalreglog-container">
+    <div class="row">
+        <div class="col-xs-12 col-md-4 col-md-offset-4">
+            <div class="parent">
+                <div class="div-register">
+                    <div class="connect-logo">
+                    <img src="img\icon.png">
+                    <h1 class="titulo" style="font-family: Verdana,sans-serif ">CONNECT</h1>
+                    </div>
+                    <div>
+                        <h3 class="subtitulo">¡Bienvenido!</h3>
+                    </div>
+                    <div class="botonera">
+                        <button class="btn-lg pb-modalreglog-submit login-button" data-toggle="modal" data-target="#myModal">Iniciar Sesión</button>
+                        <button class="btn-lg pb-modalreglog-submit register-button" data-toggle="modal" data-target="#myModal2">Registro</button>
+                    </div>
+                
+                </div>
+            
+              
+            </div>
+           
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Formulario de Inicio de Sesión</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="email">Correo Electrónico</label>
+                                    <div class="input-group pb-modalreglog-input-group">
+                                        <input type="email" class="form-control" id="email" placeholder="Email">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Contraseña</label>
+                                    <div class="input-group pb-modalreglog-input-group">
+                                        <input type="password" class="form-control" id="pws" placeholder="Password">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn login-button-form" onclick="login()">Iniciar Sesión</button>
+                            <button type="button" class="btn login-button-form-close" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Formulario de Registro</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="pb-modalreglog-form-reg">
+                                <div class="form-group">
+                                    <div id="pb-modalreglog-progressbar"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Nombre</label>
+                                    <div class="input-group pb-modalreglog-input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                        <input type="email" class="form-control" id="inputName" placeholder="Nombre">
+                                        <span class="span-error-nombre">Debe de rellenar el campo Nombre</span>
+                                    </div>
+                                <div class="form-group">
+                                    <label for="email">Correo Electrónico</label>
+                                    <div class="input-group pb-modalreglog-input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                                        <input type="email" class="form-control" id="inputEmail" placeholder="Correo Electrónico">
+                                        <span class="span-error-email">Debe de rellenar el campo Email</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Contraseña</label>
+                                    <div class="input-group pb-modalreglog-input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                        <input type="password" class="form-control" id="inputPws" placeholder="Contraseña"  data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmpassword">Confirmar Contraseña</label>
+                                    <div class="input-group pb-modalreglog-input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                        <input type="password" class="form-control" id="inputConfirmPws" placeholder="Confirmar Contraseña"  title="tooltip on third input!" >
+                                        <span class="span-error-password-first">Debe de rellenar ambos campos de Contraseña</span>
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="ch" name="chs">
+                                    I agree with <a href="#">terms and conditions.</a>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div>
+                            <span class="span-invisible">Se ha registrado el usuario correctamente</span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn register-button-form-close" data-dismiss="modal">Cerrar</button>
+                            <button type="button"  class="btn register-button-form" onClick="registrar()">Registrarse </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+
+<style>
+    .titulo{
+        font-family: Tahoma, Geneva, sans-serif;
+        font-size: 35px;
+        letter-spacing: 2px;
+        word-spacing: 2px;
+        color: #000000;
+        font-weight: 700;
+        text-decoration: none solid rgb(68, 68, 68);
+        font-style: normal;
+        font-variant: normal;
+        text-transform: uppercase;
+    }
+
+    .subtitulo{
+        font-family: Tahoma, Geneva, sans-serif;
+        font-size: 26px;
+        letter-spacing: 2px;
+        word-spacing: 2px;
+        color: #000000;
+        font-weight: 700;
+        text-decoration: none solid rgb(68, 68, 68);
+        font-style: normal;
+        font-variant: normal;
+    }
+    
+    body{
+       background-color: #6572ae;
+    }
+    .pb-modalreglog-container
+    {
+        margin-top: 100px;
+    }
+
+    .pb-modalreglog-legend
+    {
+        text-align: center;
+    }
+
+    .pb-modalreglog-input-group
+    {
+        margin: auto;
+    }
+
+    .pb-modalreglog-submit
+    {
+        margin-left: 5px;
+    }
+
+    .pb-modalreglog-form-reg
+    {
+        text-align: center;
+    }
+
+    .pb-modalreglog-footer p
+    {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #pb-modalreglog-progressbar
+    {
+        border-radius: 2px;
+    }
+
+    .parent{
+        display:flex;
+        flex-direction: row;
+        align-items:center;
+        justify-content:center;
+        min-width: 300px;
+        min-height:750px;
+       
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid #999;
+        border: 1px solid rgba(0,0,0,.2);
+        border-radius: 6px;
+        outline: 0;
+        -webkit-box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+        box-shadow: 0 3px 9px rgb(0 0 0 / 50%);
+        background-color: #ffffff;
+    }
+
+    .div-register{
+        display:flex;
+        flex-direction:column;
+        width: 300px;
+        height: 750px;
+        align-items:center;
+        justify-content:space-evenly;
+       
+    }
+
+    .register-button,.login-button{
+        background-color:#0037FF;
+        border:#1adbff;
+        border-radius:10px;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:19px;
+        padding:12px 37px;
+        text-decoration:none;
+    }
+
+    .register-button-form,.login-button,.login-button-form{
+        background-color:#0037FF;
+        color:#ffffff;
+    }
+
+    .register-button-form-close,.login-button-form-close{
+        background-color:#ffffff;
+        color:#000000;
+        border: 1px#000000 solid;
+    }
+
+    .button-footer{
+        background-color:#0037FF;
+        border:#0037FF;
+        border-radius:10px;
+        color:#ffffff;
+        font-family:Arial;
+        font-size: medium;
+    }
+
+    .register-button:active {
+        position:relative;
+        top:1px;
+    }
+
+   
+    
+    .login-button:active {
+        position:relative;
+        top:1px;
+    }
+    .connect-logo{
+        display:flex;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    
+    .span-invisible{
+        color: green;
+        display: none;
+    }
+
+    .span-error-nombre, .span-error-email , .span-error-password-first{
+        display: none;
+        color:red;
+        font-size: 10px;
+    }
+    .botonera{
+        display:flex;
+        flex-direction:column;
+        height: 140px;
+        justify-content: space-around;
+    }
+
+/*FOOTER*/
+footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    height: auto;
+    width: 100vw;
+    padding-top: 40px;
+    color: #000000;
+}
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    max-height: 125px;
+}
+.footer-content h3{
+    font-size: 2.1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 16px;
+    color: #000000;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #000000;
+    border: 1.1px solid white;
+    padding: 5px;
+    border-radius: 50%;
+
+}
+.socials a i{
+    font-size: 1.5rem;
+    width: 20px;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: aqua;
+}
+
+.footer-bottom{
+    background: #ffffff;
+    width: 100vw;
+    padding: 20px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.footer-bottom p{
+float: left;
+    font-size: 16px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footer-bottom p a{
+  color:#000000;
+  font-size: 16px;
+  text-decoration: none;
+}
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+.footer-menu{
+  float: right;
+
+}
+.footer-menu ul{
+  display: flex;
+}
+.footer-menu ul li{
+padding-right: 10px;
+display: block;
+}
+.footer-menu ul li a{
+  color: #000000;
+  text-decoration: none;
+}
+.footer-menu ul li a:hover{
+  color: #27bcda;
+}
+.f-menu li{
+    font-size: 18px;
+}
+      
+@media (max-width:500px) {
+.footer-menu ul{
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+}
+    
+</style>
+
+<script>
+
+    $('.password').tooltip({
+        placement: "right",
+        trigger: "focus"
+    });
+
+    function registrar(){
+        let error = false;
+
+        /*Comprobar si existen o no usuarios*/
+        var usuariosExistentes = JSON.parse(localStorage.getItem("usuariosRegistro"));
+        console.log(usuariosExistentes);
+        if (usuariosExistentes == null) usuariosExistentes = [];
+
+        var usuarioName = document.getElementById("inputName").value;
+        var usuarioCorreo = document.getElementById("inputEmail").value;
+        var usuarioPassword = document.getElementById("inputPws").value;
+        var usuarioPasswordSecond = document.getElementById("inputConfirmPws").value;
+
+        if (!usuarioCorreo)  {
+            $(".span-error-email").css("display", "block");
+            error = true;
+            
+        }else{
+            $(".span-error-email").css("display", "none");
+            error = false;
+        }
+
+        if (!usuarioName)  {
+            $(".span-error-nombre").css("display", "block");
+            error = true;
+        }else{
+            $(".span-error-nombre").css("display", "none");
+            error = false;
+        }
+
+        if (!usuarioPasswordSecond || !usuarioPasswordSecond)  {
+            $(".span-error-password-first").css("display", "block");
+            error = true;
+        }else{
+            $(".span-error-password-first").css("display", "none");
+            error = false;
+        }
+
+
+
+        var usuario = {
+            "correo": usuarioCorreo,
+            "password": usuarioPassword
+        };
+        
+        if(!error){
+            // guardo elementos en el array
+            usuariosExistentes.push(usuario);
+            localStorage.setItem("usuariosRegistro", JSON.stringify(usuariosExistentes));
+            $(".span-invisible").css("display", "block");
+            setTimeout(function(){
+                $('#myModal2').modal('hide')
+                $(".span-invisible").css("display", "none");
+            }, 1500);
+            
+        }else{
+            $(".span-invisible").css("display", "none");
+        }
+        
+
+    }
+
+    function login(){
+        var usuariosExistentes = JSON.parse(localStorage.getItem("usuariosRegistro"));
+
+        let email = $("#email").val();
+        let password = $("#pws").val();
+       
+        usuariosExistentes[0].correo;
+       
+        for (let i=0;i<usuariosExistentes.length;i++) {
+            if( usuariosExistentes[i].correo == email && usuariosExistentes[i].password == password ) {
+
+                window.location.replace("activity.html");
+            }
+        }
+    }
+
+</script>
+</div>
+<footer>
+    <div class="footer-content">
+        <h3>Alvaro Vazquez</h3>
+        <p>Creemos en el poder del desarrollo de buenos productos con grandes 
+            propósitos con los que crear una gran comunidad unida por la accesibilidad </p>
+        <ul class="socials">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p>copyright &copy;2021 <a href="#">Alvaro Vazquez</a>  </p>
+                <div class="footer-menu">
+                  <ul class="f-menu">
+                    <li><button onclick="location.href='qa.html'"  class="btn btn-secondary button-footer pb-modalreglog-submit">Q&A</button></li>
+                    <li><button  onclick="location.href='contact.html'"  class="btn btn-secondary button-footer pb-modalreglog-submit">Contacto</button></li>
+                  </ul>
+                </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Zoom WebSDK</title>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="origin-trial" 
+        content="ApbyCprSSGVaT3D3B6PtIv+n/9OBJNNvn90FOjL7bJcSHnPiF3EWtIu0cucMH4cSEaJfG+5/wMev1YBGHQNkHw0AAABLeyJvcmlnaW4iOiJodHRwczovLzAuMC4wLjA6MzAwMCIsImZlYXR1cmUiOiJXZWJDb2RlY3MiLCJleHBpcnkiOjE2MjYyMjA3OTl9"
+    >
+    <!-- The link below is for the mic and camera icons in this demo -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" 
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" 
+        crossorigin="anonymous" 
+    />
+</head>
+
+<body>
+    <div class="container app-root">
+        <!-- Preview view -->
+        <div id="js-preview-view" class="container preview__root">
+            <span>
+                <h1>Unirse a una nueva reunion</h1>
+
+            </span>
+            <div class="container video-app">
+                <!-- You can use any height or width you wish for the preview -->
+                <video id="js-preview-video" class="preview-video" playsinline="" muted="" data-video="0"></video>
+                <div class="container meeting-control-layer">
+                    <!-- "fas" and "fa" are icon prefixes for the font-awesome library -->
+                    <button id="js-preview-mic-button" class="meeting-control-button">
+                        <i id="js-preview-mic-icon" class="fas fa-microphone-slash"></i>
+                    </button>
+                    <button id="js-preview-webcam-button" class="meeting-control-button">
+                        <i id="js-preview-webcam-icon" class="fas fa-video webcam__off"></i>
+                    </button>
+                </div>
+            </div>
+            <button id="js-preview-join-button" class="join-button">
+                Join
+            </button>
+        </div>
+        <!-- Loading view -->
+        <div id="js-loading-view" class="container loading-view hidden">
+            <h1>Joining session, sit tight...</h1>
+            <i class="fas fa-spinner loading-spinner"></i>
+        </div>
+        
+        <div id="js-video-view" class="container video-app hidden">
+            <canvas id="video-canvas" class="video-canvas" width="1280" height="640"></canvas>
+             <!-- In-session view -->
+             
+        <div class="slideshow-container">
+            <!-- Full-width slides/quotes -->
+            <div class="mySlides">
+                <i id="js-mic-icon" class=" fas fa-palette icon"></i>
+                <q>Pulsa el boton Color para modificar el color de los botones y los subtítulos</q>
+                <br>
+                <q> Puedes usar la tecla "c" como atajo de teclado</q>
+            </div>
+        
+            <div class="mySlides">
+                <i id="js-mic-icon" class=" fas fa-text-height icon"></i> 
+                <q>Pulsa el boton Resize para modificar el tamaño de los botones y los subtítulos</q>
+                <br>
+                <q> Puedes usar la tecla "r" como atajo de teclado</q>
+            </div>
+        
+            <div class="mySlides">
+                <i id="js-mic-icon" class="fas fa-microphone-slash icon"></i> 
+                <q>Pulsa el boton Mute para silenciar o activar el micrófono</q>
+                <br>
+                <q>El micrófono está silenciado cuando el boton aparece en rojo</q>
+                <br>
+                <q> Puedes usar la tecla "m" como atajo de teclado</q>
+            </div>
+
+            <div class="mySlides">
+                    <i id="js-webcam-icon" class="fas fa-video webcam__off icon"></i>
+                <q>Pulsa el boton Webcam para activar o desactivar la cámara</q>
+                <br>
+                <q>Lá camara está encendida cuando el boton aparece en rojo</q>
+                <br>
+                <q> Puedes usar la tecla "w" como atajo de teclado</q>
+            </div>
+            <div class="mySlides">
+                <i id="js-leave-session-icon" class="fas fa-phone icon"></i>
+                <q>Pulsa el boton End para salir de la reunion</q>
+                <br>
+                <q> Puedes usar la tecla "e" como atajo de teclado</q>
+        </div>
+
+        <div class="mySlides">
+                <i id="js-mic-icon" class="fas fa-question-circle icon"></i>
+                <q>Pulsa el boton Help para activar o desactivar la ayuda</q>
+                <br>
+                <q> Puedes usar la tecla "h" y las teclas de dirección Izquierda y Derecha como atajo de teclado</q>
+        </div>
+
+        <div class="mySlides">
+                    <i id="js-mic-icon" class="fas fa-solid fa-closed-captioning"></i>
+                    <q>Pulsa el boton Subtitle para activar o desactivar los subtitulos</q>
+                    <br>
+                    <q> Puedes usar la tecla "s" como atajo de teclado</q>
+        </div>
+                <div class="mySlides">
+                    <i id="js-mic-icon" class="fas fa-solid fa-download"></i> 
+                    <q>Pulsa el boton File para descargar el contenido de los subtítulos</q>
+                    <br>
+                    <q> Puedes usar la tecla "f" como atajo de teclado</q>
+                    </div>
+            
+            
+            <!-- Next/prev buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+            <div class="container meeting-control-layer">
+                
+                <!-- "fas" and "fa" are icon prefixes for the font-awesome library -->
+                <button id="js-color-button" onclick="cambiaColor()" class="meeting-control-button">
+                    <div class="text-center">
+                     <i id="js-mic-icon" class=" fas fa-palette icon"></i> 
+                        <h6 class="text-icon-micro">Color</h6>
+                     </div>
+                 </button>
+                <button id="js-size-button" onclick="cambiaTamanho()" class="meeting-control-button">
+                    <div class="text-center">
+                     <i id="js-mic-icon" class=" fas fa-text-height icon"></i> 
+                        <h6 class="text-icon-micro">Resize</h6>
+                     </div>
+                 </button>
+                <button id="js-mic-button" class="meeting-control-button">
+                   <div class="text-center">
+                    <i id="js-mic-icon" class="fas fa-microphone-slash icon"></i> 
+                       <h6 class="text-icon-micro">Mute</h6>
+                    </div>
+                </button>
+                <button id="js-webcam-button" class="meeting-control-button">
+                    <div class="text-center">
+                    <i id="js-webcam-icon" class="fas fa-video webcam__off icon"></i>
+                       <h6 class="text-icon-webcam">Webcam</h6>
+                    </div>
+                </button>
+                <div class="vertical-divider"></div>
+
+                <button id="js-leave-button"  class="meeting-control-button meeting-control-button__leave-session">
+                    <div class="text-center">
+                    <i id="js-leave-session-icon" class="fas fa-phone icon"></i>
+                     <h6 class="text-icon-call">End</h6>
+                    </div>
+                </button>
+
+                <button id="js-help-button" onclick="desplegaAyuda()"  class="meeting-control-button">
+                    <div class="text-center">
+                    <i id="js-mic-icon" class="fas fa-question-circle icon"></i>
+                     <h6 class="text-icon-call">Help</h6>
+                    </div>
+                </button>
+
+                <button id="js-caption-button" onclick="subtitulos()"  class="meeting-control-button">
+                    <div class="text-center">
+                    <i id="js-mic-icon" class="fas fa-solid fa-closed-captioning"></i>
+                     <h6 class="text-icon-call">Subtitles</h6>
+                    </div>
+                </button>
+                <button id="js-download-button" onclick="downloadToFile('my-new-file.txt', 'text/plain')" class="meeting-control-button">
+                    <div class="text-center">
+                    <i id="js-mic-icon" class="fas fa-solid fa-download"></i> 
+                     <h6 class="text-icon-call">File</h6>
+                    </div>
+                </button>
+                
+            </div>
+
+            <div class=" container words" contenteditable>
+            </div>
+        </div>
+        <!-- Ending view -->
+        <div id="js-end-view" class="container ending-view hidden">
+            <h1>You have successfully left the session!</h1>
+        </div>
+    </div>
+</body>
+
+<script src="./static/index.min.js" defer></script>
+<script src="/src/js/meeting/session/libreria.js" ></script>
+<script src="/src/js/meeting/session/myScripts.js" defer></script>
+
+<script>
+    // Inicio reconocimiento de voz
+    /*
+    Speech Recognition es una libreria que nos permite recibir e interpretar la voz del usuario 
+    como un dato de entrada más en las aplicaciones web
+    Luego lo que hacemos es iniciar el reconocimiento de voz y luego guardar los resultados de 
+    lo que estamos hablando para poder visualizarlo por pantalla.
+    Despues lo que hacemos es filtrar varias palabras malsonantes para sustituirlas por temas 
+    de censura.
+    Luego cada segundo hace scroll de forma automatica cada segundo.
+    */
+
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.interimResults = true;
+recognition.lang = 'es-ES';
+let p = document.createElement('p');
+p.classList.add('prueba');
+const words = document.querySelector('.words');
+words.appendChild(p);
+recognition.addEventListener('result', e => {
+  const transcript = Array.from(e.results)
+    .map(result => result[0])
+    .map(result => result.transcript)
+    .join('');
+    const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
+    p.textContent = poopScript;
+    if (e.results[0].isFinal) {
+      p = document.createElement('p');
+      p.classList.add('prueba');
+      words.appendChild(p);
+    }
+});
+recognition.addEventListener('end', recognition.start);
+recognition.start();
+window.setInterval(function() {
+    var elem = document.getElementsByClassName('words')[0];
+         elem.scrollTop = elem.scrollHeight;
+        }, 1000);
+
+
+// Fin reconocimiento de voz
+
+
+// inicio escritura fichero
+/*
+En esta funcion lo que hacemos es guardar en un fichero de texto el audio que se ha emitido 
+en la conversacion con saltos de linea.
+Posteriormente se descarga al hacer click en el boton.
+*/
+function downloadToFile(filename, contentType){
+    let hijos = document.getElementsByClassName("words")[0].childNodes;
+    let content = "";
+    for(let i =1;i<hijos.length;i++){
+        content+="\n";
+        content+=hijos[i].innerHTML;
+    }
+       
+    const a = document.createElement('a');
+    const file = new Blob([content], {type: contentType});
+    
+    a.href= URL.createObjectURL(file);
+    a.download = filename;
+    a.click();
+    
+    URL.revokeObjectURL(a.href);
+};
+
+</script>
+</html>
